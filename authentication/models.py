@@ -44,7 +44,7 @@ class Account(AbstractBaseUser):
     updated_at = models.DateTimeField(auto_now=True)
     date_of_birth = models.DateField(blank=True, null=True)
     profile_pic = models.CharField(max_length=1000, null=True,blank=True)
-    std_code = models.IntegerField(max_length=5, null=True, blank= True)
+    std_code = models.IntegerField(null=True, blank= True)
     phone_num = models.CharField(max_length=15, null=True, blank=True)
     objects = AccountManager()
 

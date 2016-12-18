@@ -15,9 +15,7 @@ router.register(r'accounts', AccountViewSet)
 
 # from . import views
 
-# urlpatterns = [
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^api/v1/', include(router.urls)),
     url(r'^api/v1/auth/login/$', LoginView.as_view(), name='login'),
@@ -28,4 +26,4 @@ urlpatterns = patterns(
 
 
     # url(r'^', include('createonlineexam.urls')),
-)
+]
