@@ -1,0 +1,46 @@
+<html ng-app="COEApp">
+<base href="/" />
+    <head>
+        {% load staticfiles %}
+        <!-- <base href="/COE/" /> -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Setting the right viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="Create Online Exam for your students!!">
+		<meta name="keywords" content="Create Online Exam, Objective exam, get result generated automatically">
+		<meta name="author" content="Rajesh Upadhayaya">
+		<link rel="icon" type="image/ico" href="{% static "images/favicon.ico" %}">
+        <meta itemprop="name" content="Create Online Exam">
+        <meta itemprop="description" content="Create Online Exam for your students!!">
+
+
+		<title>Create Online Exam</title>
+        {% include 'stylesheets.html' %}
+
+
+    </head>
+    <body>
+
+{#        {% include 'navbar.html' %}#}
+
+        <div ng-view></div>
+
+    </body>
+    <footer layout="row">
+        <a href="#create-exam" class="scrollToTop"><img src="{% static "images/top.png" %}" height="40" width="40"></a>
+        <modal visible="showModal" ng-controller="loginController as l">
+
+            <div ng-include src="currentTemplate"></div>
+
+        </modal>
+{#        <div id="footer" class="footer text-center">#}
+{##}
+{#            <p>All Rights Reserved</p>#}
+{#        </div>#}
+
+
+        {% include 'javascripts.html' %}
+
+    </footer>
+</html>

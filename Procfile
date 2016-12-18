@@ -1,0 +1,1 @@
+web: gunicorn createonlineexam.wsgi --log-file -

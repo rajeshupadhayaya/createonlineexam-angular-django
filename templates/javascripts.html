@@ -1,0 +1,332 @@
+{% load staticfiles %}
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
+<script src="{% static "bower_components/angular/angular.js" %}"></script>
+<script src="{% static "bower_components/angular-cookies/angular-cookies.js" %}"></script>
+<script src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
+<script src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
+<script src="{% static "bower_components/angular-messages/angular-messages.js" %}"></script>
+<script src="{% static "bower_components/angular-aria/angular-aria.js" %}"></script>
+<script src="{% static "bower_components/angular-resource/angular-resource.js" %}"></script>
+<script src="{% static "bower_components/angular-ui-router/angular-ui-router.js" %}"></script>
+<script src="{% static "bower_components/angular-material/angular-material.js" %}"></script>
+{#<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>#}
+<script src="{% static "bower_components/angular-material/modules/js/icon/icon.js" %}"></script>
+<script src="{% static "bower_components/satellizer/satellizer.js" %}"></script>
+{#<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>#}
+{#<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>#}
+{#<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>#}
+{#<script src="https://cdnjs.com/libraries/bootstrap-material-design"></script>#}
+<script src="{% static "js/jquery.parallax-1.1.3.js" %}"></script>
+<script src="{% static "js/jquery.lazyload.min.js" %}"></script>
+<script src="{% static "js/jquery.localscroll-1.2.7-min.js" %}"></script>
+<script src="{% static "js/jquery.scrollTo-1.4.2-min.js" %}"></script>
+<script src="{% static "js/jquery.form.js" %}"></script>
+<script src="{% static "js/angular-material-icons.min.js" %}"></script>
+<script src="{% static "js/md-data-table.js" %}"></script>
+<script src="{% static "js/ng-img-crop.js" %}"></script>
+<script src="{% static "js/ng-file-upload-shim.js" %}"></script>
+<script src="{% static "js/ng-file-upload.js" %}"></script>
+<script src="{% static "core/app/app.js" %}"></script>
+<script src="{% static "core/controller/controller.js" %}"></script>
+<script src="{% static "core/directives/appDirective.js" %}"></script>
+<script src="{% static "core/services/authentication.service.js" %}"></script>
+<script src="{% static "core/services/user.service.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/ui-bootstrap-tpls-1.3.2.js" %}"></script>
+<script src="{% static "js/paging.js" %}"></script>
+<script src="{% static "js/script.js" %}"></script>
+{#<script src="{% static "js/notify.js" %}"></script>#}
+<script src="{% static "js/Notifier.js" %}"></script>
+{#<script src="{% static "js/ngFacebook.js" %}"></script>#}
+{#<script src="{% static "js/Validation.js" %}"></script>#}
+<!-- Auth0 Lock script and AngularJS module -->
+{#<script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>#}
+<!-- angular-jwt and angular-storage -->
+{#<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>#}
+{#<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>#}
+{#<script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>#}
+<link rel="canonical" href="https://dev.twitter.com/web/tweet-button">
+
+
+<script type="text/ng-template" id="/login.html" >
+    <div class="form-header text-center">Login</div>
+{#    <div class="row">#}
+{#        <div class="col-md-6">#}
+        <form ng-submit="submitLogin()" id="loginForm" name="loginForm" autocomplete="off" >
+            <md-input-container class="md-block">
+                <label >Email Id/Username</label>
+                <input type="text" id="login_username" name="username" ng-model="user.username" ng-required="true">
+                <div ng-messages="loginForm.username.$error" ng-show="loginForm.username.$touched">
+                    <div ng-message="required">Username/Email Id is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label for="password">Password</label>
+                <input type="password" id="login_password" name="password" ng-model="user.password" minlength="4" ng-required="true">
+                <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+                    <div ng-message="required">Password is required.</div>
+                    <div ng-message="minlength">Password is too short!</div>
+                </div>
+            </md-input-container>
+
+            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="user.remember" class="md-primary">
+                Remember me
+            </md-checkbox>
+
+            <div class="md-block">
+                <button type="submit" class="md-raised md-primary md-button md-default-theme btn-custom" ng-disabled="!loginForm.$valid">Login</button>
+            </div>
+
+        </form>
+{#        </div>#}
+
+{#        <div class="col-md-6" style="top: 0%; ">#}
+{#            <div class="login-div">#}
+{#            <!-- <button class="btn btn-lg btn-info">Login Using Google</button> -->#}
+{#                <button class="btn btn-lg btn-info" ng-click="Fblogin()">Login Using Facebook</button>#}
+{#    <!-- <span id="googleSignIn">#}
+{#      <span id="signInButton">#}
+{#      </span>#}
+{#    </span>#}
+{#    <fb:login-button show-faces="true" max-rows="1" ng-click="watchLoginChange"></fb:login-button>#}
+{#     -->#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <div class="modal-footer">
+        <div class="text-right">
+            <button id="login_lost_btn" type="button" ng-click="lostPassword()" class="btn btn-link">Lost Password?</button>
+            <button id="login_register_btn" ng-click="registerWithUsForm()" type="button" class="btn btn-link">Register</button>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="/lostPassword.html">
+
+    <div class="form-header text-center">Forget Password</div>
+        <form id="forgetPassword" name="forgetPassword" ng-submit="forgetPassword()">
+
+            <div class="modal-body">
+                <md-input-container class="md-block">
+                    <label >Username</label>
+                    <input type="text" name="lost_email" id="lost_email" ng-model="forgetPassword.email" ng-required="true" />
+
+                    <div ng-messages="forgetPassword.lost_email.$error" ng-show="forgetPassword.lost_email.$touched">
+                        <div ng-message="required">Username/E-Mail is required.</div>
+                    </div>
+                </md-input-container>
+                <!-- <input id="lost_email" class="form-control" type="text" placeholder="E-Mail id/Username" required> -->
+            </div>
+
+            <div class="modal-footer">
+                <div>
+                    <button type="submit" class="md-raised md-primary md-button md-default-theme btn-custom" ng-disabled="!forgetPassword.$valid">Send</button>
+                </div>
+                <div>
+                    <button id="lost_login_btn" type="button" class="btn btn-link" ng-click="openLogin()">Log In</button>
+                    <button id="lost_register_btn" type="button" class="btn btn-link" ng-click="registerWithUsForm()">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</script>
+
+<script type="text/ng-template" id="/registerWithUsForm.html">
+    <div class="form-header text-center">Register</div>
+    <form id="registerWithUsForm" name="registerWithUsForm" ng-submit="submitRegister()">
+
+
+        <md-input-container class="md-block">
+            <label >Username</label>
+            <input type="text" name="username" id="username" ng-model="register.username" ng-required="true" >
+            <div ng-messages="registerWithUsForm.username.$error" ng-show="registerWithUsForm.username.$touched">
+                <div ng-message="required">Username is required.</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+
+            <label>Email Id</label>
+            <input type="email" name="email" id="email"  ng-model="register.email" ng-required="true"/>
+            <div ng-messages="registerWithUsForm.email.$error" ng-show="registerWithUsForm.email.$touched">
+                <div ng-message="required">Email Id is required.</div>
+            </div>
+
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" ng-model="register.password" ng-required="true" minlength="4">
+            <div ng-messages="registerWithUsForm.password.$error" ng-show="registerWithUsForm.password.$touched">
+                <div ng-message="required">Password is required.</div>
+                <div ng-message="minlength">Password is too short!</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label for="confirm_password">Re-enter Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" ng-model="register.confirm_password" password-match="password">
+          <!-- <div class="md-input-message-animation ng-scope" style="opacity: 1; margin-top: 0px;" ng-show="registerWithUsForm.InputPasswordRepeat.$error.pwmatch">
+            Passwords don't match manual.
+          </div> -->
+            <div ng-messages="registerWithUsForm.confirm_password.$error" >
+                <div ng-message="pwmatch">Password doesn't match.</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>Select user type</label>
+            <md-select name="user_type" ng-model="register.user_type" required>
+                <md-option ng-value="1" >I am a University</md-option>
+                <md-option ng-value="2" >I am a School/Institute</md-option>
+                <md-option ng-value="3" >I am a Teacher</md-option>
+                <md-option ng-value="4" >I am a Student</md-option>
+            </md-select>
+            <div class="errors" ng-messages="registerWithUsForm.user_type.$error" ng-if="registerWithUsForm.user_type.$dirty">
+                <div ng-message="required">Required</div>
+            </div>
+        </md-input-container>
+
+        <div class="modal-footer">
+            <div>
+                <button type="submit" class="md-raised md-primary md-button md-default-theme btn-custom" ng-disabled="!registerWithUsForm.$valid">Register</button>
+            </div>
+            <div class="policyNote">
+                By Signing Up you agree to our <a href='#'>T&C</a> and <a href='#'>Privacy Policy</a>.
+            </div>
+            <div>
+                <button id="register_login_btn" type="button" class="btn btn-link" ng-click="openLogin()">Log In</button>
+                <button id="register_lost_btn" type="button" class="btn btn-link" ng-click="lostPassword()">Lost Password?</button>
+            </div>
+        </div>
+    </form>
+
+</script>
+<script type="text/ng-template" id="updateUserDetail.tmpl.html">
+
+    <md-dialog aria-label="Update Info" ng-cloak>
+
+        <form ng-submit="saveUserDetails()" >
+            <md-toolbar layout="row" >
+                <div class="md-toolbar-tools">
+                    <h3>Update Details</h3>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel();">
+                        <ng-md-icon icon="close" aria-label="close"></ng-md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-dialog-content class="userUpdate">
+                <md-input-container class="md-block">
+                    <label >First Name</label>
+                    <input type="text" id="user.firstName" name="firstName" ng-model="user.firstName">
+                </md-input-container >
+                <md-input-container class="md-block">
+                    <label >Last Name</label>
+                    <input type="text" id="user.lastName" name="lastName" ng-model="user.lastName">
+                </md-input-container>
+                <md-input-container>
+                    <label>Std Code</label>
+                    <input type="text" id="user.std_code" name="std_code" ng-model="user.std_code">
+                </md-input-container>
+                <md-input-container>
+                    <label >Mobile Number</label>
+                    <input type="text" id="user.phone_num" name="phone_num" ng-model="user.phone_num">
+                </md-input-container>
+                <br>
+                <md-datepicker ng-model="user.dob" md-placeholder="DOB"></md-datepicker>
+
+
+
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="cancel()">
+                        Cancel
+                    </md-button>
+                    <span flex></span>
+                    <md-button type="submit">
+                        Save
+                    </md-button>
+                </md-dialog-actions>
+            </md-dialog-content>
+
+        </form>
+    </md-dialog>
+
+</script>
+<script type="text/ng-template" id="uploadImage.tmpl.html">
+
+    <md-dialog aria-label="Update Profile Pic" ng-cloak>
+            <md-toolbar layout="row" >
+                <div class="md-toolbar-tools">
+                    <h3>Change Avatar</h3>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="cancel();">
+                        <ng-md-icon icon="close" aria-label="close"></ng-md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+        <form>
+            <md-dialog-content class="userUpdate">
+
+                <div>Select an image file: <input type="file" id="fileInput" /></div>
+                <div class="cropArea">
+                    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+
+                </div>
+                    <div>Cropped Image:</div>
+                    <div><img ng-src="{{myCroppedImage}}" /></div>
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="cancel()">
+                        Cancel
+                    </md-button>
+                    <span flex></span>
+                    <md-button type="submit" class="md-raised md-primary" ng-click="saveImage()">
+                        Upload
+                    </md-button>
+                </md-dialog-actions>
+            </md-dialog-content>
+        </form>
+    </md-dialog>
+
+</script>
+
+
+<script>
+    $(function() {
+        $("img.lazy").lazyload();
+    });
+</script>
+
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+    !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],
+                p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+
