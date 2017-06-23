@@ -16,7 +16,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "static/bower_components",
+    "createonlineexam/static/bower_components",
     "test",
     "tests"
   ],
