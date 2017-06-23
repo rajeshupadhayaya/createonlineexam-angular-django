@@ -1,0 +1,119 @@
+
+
+<div class="addBlock" id="">
+    <h2>Add Teachers</h2>
+    <form id="addTeachers" name="addTeachers" ng-submit="addTeacher()">
+        <md-input-container >
+            <label >Create Username</label>
+            <input type="text" name="username" ng-model="teacher.username" ng-required="true" />
+
+            <div ng-messages="addTeachers.username.$error" ng-show="addTeachers.username.$touched">
+                <div ng-message="required">Username required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container >
+            <label >Email id</label>
+            <input type="text" name="email" ng-model="teacher.email" ng-required="true" />
+
+            <div ng-messages="addTeachers.email.$error" ng-show="addTeachers.email.$touched">
+                <div ng-message="required">Email id required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container >
+            <label >Password</label>
+            <input type="password" name="password" ng-model="teacher.password" ng-required="true" minlength="4"/>
+            <div ng-messages="addTeachers.password.$error" ng-show="addTeachers.password.$touched">
+
+                <div ng-message="required">Password is required.</div>
+                <div ng-message="minlength">Password is too short!</div>
+            </div>
+        </md-input-container>
+        <md-input-container >
+            <label for="confirm_password">Re-enter Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" ng-model="teacher.confirm_password" password-match="password">
+            <div ng-messages="addTeachers.confirm_password.$error" >
+                <div ng-message="pwmatch">Password doesn't match.</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <button type="submit" class="md-raised md-primary md-button md-default-theme btn-custom" ng-disabled="!addTeacher.$valid">Add</button>
+        </md-input-container>
+
+    </form>
+</div>
+<div layout="row" class="text-center" flex>
+
+    <button class="md-raised md-primary md-button" ng-click="teacherList = true;getTeacherList()">View Teachers</button>
+</div>
+
+<div ng-if="teacherList" style="padding-bottom: 50px">
+
+    <md-toolbar class="md-table-toolbar md-default" ng-hide="selected.length || filter.show">
+        <div class="md-toolbar-tools">
+            <span>Teacher List</span>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="refreshList()">
+                <md-icon>refresh</md-icon>
+                <md-tooltip md-direction="bottom">
+                  Refresh
+                </md-tooltip>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="filter.show=true">
+                <md-icon>filter_list</md-icon>
+                <md-tooltip md-direction="bottom">
+                  Filter Data
+                </md-tooltip>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon>more_vert</md-icon>
+                <md-tooltip md-direction="bottom">
+                  Setting
+                </md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+        <div class="md-toolbar-tools">
+            <span>{{selected.length}} {{selected.length > 1?'items' : 'item'}} selected</span>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="">
+                <md-icon>delete</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar class="md-table-toolbar md-default" ng-show="filter.show && !selected.length">
+        <div class="md-toolbar-tools">
+            <md-icon>search</md-icon>
+            <form name="filter.form" flex>
+                <input type="text" ng-model="query.filter" placeholder="Search">
+            </form>
+            <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="removeFilter()">
+                <md-icon>close</md-icon>
+            </button>
+        </div>
+    </md-toolbar>
+    <md-table-container>
+        <table data-md-table data-md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" data-ng-model="selected" md-progress="promise">
+            <thead md-head data-md-order="query.order" md-on-reorder="getList">
+                <tr md-row>
+                    <th md-column md-order-by="nameToLower"><span>Teacher Name</span></th>
+                    <th md-column ><span>Subject</span></th>
+                    <th md-column >Class</th>
+                </tr>
+            </thead>
+            <thead class="md-table-progress"></thead>
+            <tbody md-body>
+                <tr md-row md-select="list" md-select-id="name" data-md-on-select="log" md-on-deselect="deselect" x-md-auto-select="options.autoSelect"
+                    md-select-id="name" md-auto-select
+                    data-ng-repeat="list in getList.data| filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page - 1) * query.limit">
+                    <td md-cell>{{ list.name }}</td>
+                    <td md-cell>{{ list.subject }}</td>
+                    <td md-cell>{{ list.class }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <data-md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{getList.count}}"
+         md-on-paginate="onPaginate" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks"></data-md-table-pagination>
+
+</div>

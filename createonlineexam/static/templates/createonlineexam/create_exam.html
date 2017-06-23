@@ -1,0 +1,131 @@
+<a type="button" id="help-me" href="#" role="button" data-toggle="modal" data-target="#help" class="help"></a>
+<div class="container" >
+<form class="form-horizontal" id="objective-exam-create-form">
+    <article id = "apage_1" class="info-container text-center" ng-show="firstPage">
+        
+        <h2 class="text-center">Create Exam</h2>
+        
+        <div class="form-group">
+            <div class="col-md-12 text-left">
+                <input type="textbox" id="name" class="form-control" ng-model="ques.name" maxlength="50" placeholder="Enter Your Name" required>
+            </div>
+        </div>
+		
+        <div class="form-group">
+            <div class="col-md-12 text-left">
+                <input type="email" id="mailid" class="form-control" ng-model="ques.mailid" maxlength="50" placeholder="Enter Your Email Id" required>
+            </div>
+        </div>
+		
+        <div class="form-group">
+            <div class="col-md-12 text-left">
+                <input type="textarea" id="examname" class="form-control" ng-model= "ques.examname" maxlength="150" placeholder="Enter Exam Name" required>
+            </div>
+        </div>
+		
+        <div class="form-group">
+            <div class="col-md-12 text-left">
+                <input type="textarea" id="phonenumber" class="form-control" ng-model="ques.phonenumber" maxlength="12" placeholder="Enter Phone Number" required><br>
+            </div>
+        </div>
+		
+		
+		<div class="text-right">
+			<a href="" class="btn btn-info" ng-click="showQuesBlock()">Next</a>
+		</div>
+		
+    </article>
+	
+    <article id= "apage2" class="container-effect" ng-show="secondPage">
+
+			<div class="row text-left quest-create-hdr">
+				<div class="col-md-4">
+					<b>Created by {{ques.name}}</b>
+				</div>
+				<div class="col-md-4 text-center">
+					{{ques.examname}}
+				</div>
+				<div class="col-md-4 text-right">
+					<a href="" ng-click="showMainBlock()">Edit Details</a>
+				</div>
+			</div>
+            <div  ng-repeat="n in range(10)">
+
+				<div id="{{n}}" class="quest-block form-group text-center" ng-show="showQuestion=={{n }}">
+					<label class="col-md-1 text-left" for="ques{{ $index + 1}}">Ques {{ $index + 1}}.</label>
+					<div class="col-md-11 text-left">
+						<textarea ng-model="ques.ques[$index]" class="form-control" maxlength="500" required></textarea><br>
+					</div>
+					
+					<label class="col-md-1 text-left" for="ans{{ $index + 1 }}">Ans. </label>
+					<label class="col-md-1 text-left" for="ans{{ $index + 1 }}a">A.</label>
+					<div class="col-md-4 text-left">
+						<input type="textarea" class="form-control" ng-model="ques.ansa[index]" class="textbox1" maxlength="100" required>
+					</div>
+					<label class="col-md-1 text-right" for="ans{{ $index + 1 }}b">B.</label>
+					<div class="col-md-5 text-left">
+						<input type="textarea" class="form-control" ng-model="ques.ansb[index]" class="textbox1" maxlength="100" required><br>
+					</div>
+					<label class="col-md-1 text-left">
+					</label>
+					<label class="col-md-1 text-left" for="ans{{ $index + 1 }}c">C.</label>
+					<div class="col-md-4 text-left">
+						<input type="textarea" class="form-control" ng-model="ques.ansc[index]" maxlength="100" required>
+					</div>
+					<label class="col-md-1 text-right" for="ans{{ $index + 1 }}d">D.</label>
+					<div class="col-md-5 text-left">
+						<input type="textarea" class="form-control" ng-model="ques.ansd[index]" maxlength="100" required><br>
+					</div>
+					<label class="col-md-2 text-left" for="ans{{ $index + 1 }}correct"> Correct Answer:</label>
+					<div class="col-md-10 text-left">
+						<input type="textarea" class="form-control" ng-model="ques.anscorrect[index]" maxlength="100" required><br><br>
+					</div>					
+					<div class="row btn-bar">
+						<div class="col-md-4 text-left ">
+							<a ng-disabled="n <= 0" ng-click="prevQues(n)" class="btn btn-info">Previous</a>
+						</div>
+						<div class="col-md-4 text-center">
+							<input type='submit' class="btn btn-success btn-lg text-right" value= 'Create Exam' name='objsubmit'>
+						</div>
+						<div class="col-md-4 text-right">
+							<a ng-disabled="n >= 9" ng-click="nextQues(n)" class="btn btn-info">Next</a>
+						</div>
+					</div>
+				</div>
+            </div>
+			
+		
+		<!-- <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span> -->
+			
+		</div>
+    </article>
+</form>
+</div>
+<div class="modal fade" id="help" tabindex="-1" role="form" aria-labelledby="help">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center">Help To Create Objective Exam </h4>
+            </div>
+            <div class="modal-body">
+                <p>Please fill all the values asked on the first page, as they all are mandatory fields and you will not allow to move to the second page.
+                </p><p>Your Email id will be saved and use for communication purpose, so be sure you are providing the correct email id.</p>
+                <p>Exam name is the name which will appear as the heading of the exam to the student and it will also use in future to search exam by name.</p>
+                <p>We store phone number for future preference.</p>
+                <p>After filling all these details click on the <b>NEXT</b> button it will direct you to the main exam creation page.</p>
+                <p>This page will have 10 questions and each question will have<b> 4 options</b> which will be given as choice to the student.</p>
+                <p>This page also have one more field name <b>Correct Answer</b>. Here you need to write the correct answer.<b> Please do not write
+                    the option number </b>as it will give you the wrong result. You need to write the complete answer in <b>Correct Answer</b> filed.</p>
+                <p>Default time limit for the exam is <b>20 min</b>. We are working on it, in future you will be allow to choose the time limit of the exam.This feature
+                will come on the next release.</p>
+                <p>The result will be auto calculated by the system and the score will be send to you at your email address and you can also view all the result
+                in result tab on the <a href="/">home page</a>.</p>
+                <p>After successful Exam Creation, A Email with all the details will be sent to your email id.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
