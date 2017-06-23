@@ -35,7 +35,8 @@ urlpatterns = [
     url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
     url(r'^api/v1/auth/layout/(?P<user_type>.+)/', LayoutView.as_view(), name='layout'),
     url(r'^create/', include('exams.urls')),
-    url(r'^.*$', IndexView.as_view(), name='index'),
+    url(r'^/', IndexView.as_view(), name='index'),
+    # url(r'^.*$', IndexView.as_view(), name='index'),
 
 
     # url(r'^', include('createonlineexam.urls')),
