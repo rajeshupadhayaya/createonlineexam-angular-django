@@ -48,7 +48,7 @@ function Authentication($http, $cookies, $rootScope) {
     function loginSuccessFn(data, headers, config) {
         Authentication.setAuthenticatedAccount(data.data);
         isLoggedin(data.data);
-        //console.log(data.data.user_type);
+        // console.log(data.data.user_type);
         getLayout(data.data.user_type);
         window.location = '/dashboard';
     }

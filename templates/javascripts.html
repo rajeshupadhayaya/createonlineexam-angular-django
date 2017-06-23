@@ -1,6 +1,4 @@
-{% load compress %}
 {% load staticfiles %}
-{% compress js %}
 <script type="text/javascript">
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -8,44 +6,44 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
-<script type="text/javascript" src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular/angular.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-cookies/angular-cookies.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-messages/angular-messages.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-aria/angular-aria.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-resource/angular-resource.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-ui-router/angular-ui-router.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/angular-material/angular-material.js" %}"></script>
+<script src="{% static "bower_components/jquery/dist/jquery.js" %}"></script>
+<script src="{% static "bower_components/angular/angular.js" %}"></script>
+<script src="{% static "bower_components/angular-cookies/angular-cookies.js" %}"></script>
+<script src="{% static "bower_components/angular-route/angular-route.js" %}"></script>
+<script src="{% static "bower_components/angular-animate/angular-animate.js" %}"></script>
+<script src="{% static "bower_components/angular-messages/angular-messages.js" %}"></script>
+<script src="{% static "bower_components/angular-aria/angular-aria.js" %}"></script>
+<script src="{% static "bower_components/angular-resource/angular-resource.js" %}"></script>
+<script src="{% static "bower_components/angular-ui-router/angular-ui-router.js" %}"></script>
+<script src="{% static "bower_components/angular-material/angular-material.js" %}"></script>
 {#<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>#}
-<script type="text/javascript" src="{% static "bower_components/angular-material/modules/js/icon/icon.js" %}"></script>
-<script type="text/javascript" src="{% static "bower_components/satellizer/satellizer.js" %}"></script>
+<script src="{% static "bower_components/angular-material/modules/js/icon/icon.js" %}"></script>
+<script src="{% static "bower_components/satellizer/satellizer.js" %}"></script>
 {#<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>#}
 {#<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>#}
 {#<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>#}
 {#<script src="https://cdnjs.com/libraries/bootstrap-material-design"></script>#}
-<script type="text/javascript" src="{% static "js/jquery.parallax-1.1.3.js" %}"></script>
-<script type="text/javascript" src="{% static "js/jquery.lazyload.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/jquery.localscroll-1.2.7-min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/jquery.scrollTo-1.4.2-min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/jquery.form.js" %}"></script>
-<script type="text/javascript" src="{% static "js/angular-material-icons.min.js" %}"></script>
-<script type="text/javascript" src="{% static "js/md-data-table.js" %}"></script>
-<script type="text/javascript" src="{% static "js/ng-img-crop.js" %}"></script>
-<script type="text/javascript" src="{% static "js/ng-file-upload-shim.js" %}"></script>
-<script type="text/javascript" src="{% static "js/ng-file-upload.js" %}"></script>
-<script type="text/javascript" src="{% static "core/app/app.js" %}"></script>
-<script type="text/javascript" src="{% static "core/controller/controller.js" %}"></script>
-<script type="text/javascript" src="{% static "core/directives/appDirective.js" %}"></script>
-<script type="text/javascript" src="{% static "core/services/authentication.service.js" %}"></script>
-<script type="text/javascript" src="{% static "core/services/user.service.js" %}"></script>
-<script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
-<script type="text/javascript" src="{% static "js/ui-bootstrap-tpls-1.3.2.js" %}"></script>
-<script type="text/javascript" src="{% static "js/paging.js" %}"></script>
-<script type="text/javascript" src="{% static "js/script.js" %}"></script>
+<script src="{% static "js/jquery.parallax-1.1.3.js" %}"></script>
+<script src="{% static "js/jquery.lazyload.min.js" %}"></script>
+<script src="{% static "js/jquery.localscroll-1.2.7-min.js" %}"></script>
+<script src="{% static "js/jquery.scrollTo-1.4.2-min.js" %}"></script>
+<script src="{% static "js/jquery.form.js" %}"></script>
+<script src="{% static "js/angular-material-icons.min.js" %}"></script>
+<script src="{% static "js/md-data-table.js" %}"></script>
+<script src="{% static "js/ng-img-crop.js" %}"></script>
+<script src="{% static "js/ng-file-upload-shim.js" %}"></script>
+<script src="{% static "js/ng-file-upload.js" %}"></script>
+<script src="{% static "core/app/app.js" %}"></script>
+<script src="{% static "core/controller/controller.js" %}"></script>
+<script src="{% static "core/directives/appDirective.js" %}"></script>
+<script src="{% static "core/services/authentication.service.js" %}"></script>
+<script src="{% static "core/services/user.service.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/ui-bootstrap-tpls-1.3.2.js" %}"></script>
+<script src="{% static "js/paging.js" %}"></script>
+<script src="{% static "js/script.js" %}"></script>
 {#<script src="{% static "js/notify.js" %}"></script>#}
-<script type="text/javascript" src="{% static "js/Notifier.js" %}"></script>
+<script src="{% static "js/Notifier.js" %}"></script>
 {#<script src="{% static "js/ngFacebook.js" %}"></script>#}
 {#<script src="{% static "js/Validation.js" %}"></script>#}
 <!-- Auth0 Lock script and AngularJS module -->
@@ -54,7 +52,6 @@
 {#<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>#}
 {#<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>#}
 {#<script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>#}
-{% endcompress %}
 <link rel="canonical" href="https://dev.twitter.com/web/tweet-button">
 
 
@@ -89,6 +86,22 @@
             </div>
 
         </form>
+{#        </div>#}
+
+{#        <div class="col-md-6" style="top: 0%; ">#}
+{#            <div class="login-div">#}
+{#            <!-- <button class="btn btn-lg btn-info">Login Using Google</button> -->#}
+{#                <button class="btn btn-lg btn-info" ng-click="Fblogin()">Login Using Facebook</button>#}
+{#    <!-- <span id="googleSignIn">#}
+{#      <span id="signInButton">#}
+{#      </span>#}
+{#    </span>#}
+{#    <fb:login-button show-faces="true" max-rows="1" ng-click="watchLoginChange"></fb:login-button>#}
+{#     -->#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
     <div class="modal-footer">
         <div class="text-right">
             <button id="login_lost_btn" type="button" ng-click="lostPassword()" class="btn btn-link">Lost Password?</button>
@@ -289,13 +302,13 @@
 </script>
 
 
-<script type="text/javascript">
+<script>
     $(function() {
         $("img.lazy").lazyload();
     });
 </script>
 
-<script type="text/javascript">(function(d, s, id) {
+<script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
@@ -303,7 +316,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<script type="text/javascript">
+<script>
     !function(d,s,id){
         var js,fjs=d.getElementsByTagName(s)[0],
                 p=/^http:/.test(d.location)?'http':'https';
